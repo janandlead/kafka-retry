@@ -110,7 +110,7 @@ sequenceDiagram
     B-->>K: Failure or acknowledgement
     alt Attempt 2 succeeds
         K-->>P: SendResult(partition, offset)
-        P->>P: Log success; stop retrying
+        P->>P: Log success and stop retrying
     else Attempt 2 fails
         K-->>P: Failed CompletableFuture
         P->>P: Wait backoff (1000 ms)
